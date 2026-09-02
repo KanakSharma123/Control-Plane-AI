@@ -1,0 +1,33 @@
+{
+  "_comment": "One checking policy per use case. The Round 2 brief notes that a single one-size-fits-all approach rarely works: a customer-facing chatbot has a tight latency budget and low risk tolerance, while a batch decision-support tool can afford deep checks. Same engine, different policy.",
+  "use_cases": {
+    "customer_chatbot": {
+      "name": "Customer support assistant",
+      "mode": "real-time",
+      "latency_budget_ms": 400,
+      "risk_appetite": "strict",
+      "risk_shift": 1,
+      "tier1_inline": false,
+      "notes": "Customer-facing and latency-sensitive. Tier 1 runs asynchronously; anything it would have caught inline is handled by holding the consequence, not the text."
+    },
+    "internal_copilot": {
+      "name": "Internal knowledge copilot",
+      "mode": "real-time",
+      "latency_budget_ms": 1500,
+      "risk_appetite": "balanced",
+      "risk_shift": 0,
+      "tier1_inline": true,
+      "notes": "Staff-facing with a human already in the loop, so a moderate latency budget buys inline escalation."
+    },
+    "decision_support": {
+      "name": "Regulated decision-support tool",
+      "mode": "batch",
+      "latency_budget_ms": 8000,
+      "risk_appetite": "strict",
+      "risk_shift": 1,
+      "tier1_inline": true,
+      "notes": "Batch and regulated. Latency is nearly free here, so every flagged item gets full escalation."
+    }
+  },
+  "default_use_case": "internal_copilot"
+}

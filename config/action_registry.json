@@ -1,0 +1,15 @@
+{
+  "_comment": "Impact and reversibility are properties of the ACTION TYPE, registered once by the enterprise. They need no model and cost no inference latency - this is why criticality is free to compute.",
+  "actions": {
+    "payment_release":   {"impact": 5, "reversibility": 5, "label": "Releases funds irrevocably"},
+    "claim_approval":    {"impact": 5, "reversibility": 5, "label": "Commits the insurer to a payout"},
+    "credit_decision":   {"impact": 4, "reversibility": 4, "label": "Regulated adverse-action decision"},
+    "policy_cancellation": {"impact": 4, "reversibility": 4, "label": "Terminates cover"},
+    "customer_email":    {"impact": 3, "reversibility": 3, "label": "Leaves the building, cannot be unsent"},
+    "crm_note":          {"impact": 2, "reversibility": 2, "label": "Internal record, editable"},
+    "policy_answer":     {"impact": 2, "reversibility": 1, "label": "Informational answer to staff"},
+    "internal_lookup":   {"impact": 1, "reversibility": 1, "label": "Read-only retrieval"},
+    "document_summary":  {"impact": 1, "reversibility": 1, "label": "Draft artefact, reviewed before use"}
+  },
+  "default": {"impact": 3, "reversibility": 3, "label": "Unregistered action - conservative default"}
+}

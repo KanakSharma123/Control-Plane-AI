@@ -1,0 +1,22 @@
+# Virtual environments - never commit these.
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Runtime artefacts produced by the demo
+data/audit_log.jsonl
+data/learned_rules.json
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+LICENSE
