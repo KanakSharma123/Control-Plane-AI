@@ -203,7 +203,3 @@ reasonable assumptions:
   figures and identifiers are synthetic
 
 ---
-
-## Licence
-
-MIT — see `LICENSE`.
